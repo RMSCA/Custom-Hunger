@@ -1,0 +1,5 @@
+name: CustomHunger
+version: '${project.version}'
+main: com.rmsca.customhunger.CustomHunger
+api-version: 1.18
+authors: [ RMSCA ]
