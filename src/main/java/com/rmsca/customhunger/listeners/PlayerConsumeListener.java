@@ -5,15 +5,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 public class PlayerConsumeListener implements Listener {
+    private int bread = getConfig().getInt("Bread");
     @EventHandler
     public void onPlayerConsume(PlayerItemConsumeEvent e) {
         Player p = e.getPlayer();
         if(e.getItem().getType() == Material.BREAD) {
             System.out.println("Event Triggered!");
-            if(p.getFoodLevel() > 16) {
+            if(p.getFoodLevel() > (20 - bread)) {
                 p.setFoodLevel(20);
             } else {
-                p.setFoodLevel(p.getFoodLevel() + 4);
+                p.setFoodLevel(p.getFoodLevel() + bread);
             }
             System.out.println("Process complete!");
         }

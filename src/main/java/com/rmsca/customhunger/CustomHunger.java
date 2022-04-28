@@ -6,7 +6,11 @@ public final class CustomHunger extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         System.out.println("Custom-Hunger is enabled!");
+        // Register events
         getServer().getPluginManager().registerEvents(new PlayerConsumeListener(), this);
+        // Config
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
     }
     @Override
     public void onDisable() {
