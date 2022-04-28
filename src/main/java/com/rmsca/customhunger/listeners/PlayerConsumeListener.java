@@ -1,12 +1,14 @@
 package com.rmsca.customhunger.listeners;
+import com.rmsca.customhunger.CustomHunger;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.plugin.java.JavaPlugin;
-public class PlayerConsumeListener extends JavaPlugin implements Listener {
-    private final int BREAD = getConfig().getInt("Bread");
+import org.bukkit.plugin.Plugin;
+public class PlayerConsumeListener implements Listener {
+    Plugin p = CustomHunger.getPlugin(CustomHunger.class);
+    private final int BREAD = p.getConfig().getInt("Bread");
     @EventHandler
     public void onPlayerConsume(PlayerItemConsumeEvent e) {
         Player p = e.getPlayer();
