@@ -17,7 +17,7 @@ public class PlayerConsumeListener implements Listener {
             if(p.getFoodLevel() > (20 - BREAD)) {
                 p.setFoodLevel(20);
             } else {
-                p.setFoodLevel(p.getFoodLevel() + BREAD);
+                p.setFoodLevel(p.getFoodLevel() + BREAD - 5);
             }
             plugin.getLogger().info("Process complete!");
         }
