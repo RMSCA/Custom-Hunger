@@ -1,9 +1,7 @@
 package com.rmsca.customhunger;
+import com.rmsca.customhunger.commands.SetFoodValueCommand;
 import com.rmsca.customhunger.listeners.PlayerConsumeListener;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.logging.LogRecord;
-
 public final class CustomHunger extends JavaPlugin {
     @Override
     public void onEnable() {
@@ -11,6 +9,8 @@ public final class CustomHunger extends JavaPlugin {
         getLogger().info("Custom-Hunger is enabled!");
         // Register events
         getServer().getPluginManager().registerEvents(new PlayerConsumeListener(), this);
+        // Register commands
+        getCommand("setFoodValue").setExecutor(new SetFoodValueCommand());
         // Config
         getConfig().options().copyDefaults();
         saveDefaultConfig();

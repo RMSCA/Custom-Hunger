@@ -2,4 +2,9 @@ name: CustomHunger
 version: '${project.version}'
 main: com.rmsca.customhunger.CustomHunger
 api-version: 1.18
-authors: [ RMSCA ]
+author: RMSCA
+website: https://github.com/RMSCA/Custom-Hunger
+commands:
+  setFoodValue:
+    description: Set your food value
+    usage: /<command> [food value]
