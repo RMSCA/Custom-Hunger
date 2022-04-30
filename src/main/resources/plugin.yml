@@ -5,6 +5,8 @@ api-version: 1.18
 author: RMSCA
 website: https://github.com/RMSCA/Custom-Hunger
 commands:
-  setFoodValue:
-    description: Set your food value
-    usage: /<command> [food value]
+  ch:
+    description: Set food level of player, food level should be a number between 0 and 20
+    usage: /<command> <player name> <food level>
+    aliases:
+      - customhunger
