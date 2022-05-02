@@ -17,8 +17,12 @@ public class SetFoodValueSubcommand extends Subcommand {
         if (CommandHelper.isInteger(args[1])) {
             p.setFoodLevel(Integer.parseInt(args[1]));
         } else {
-            Player targetPlayer = Bukkit.getPlayerExact(args[1]);
-            targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
+            try {
+                Player targetPlayer = Bukkit.getPlayerExact(args[1]);
+                targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
+            } catch (Exception e) {
+                p.sendMessage("Could not find this player! Check if there is a typo!");
+            }
         }
     }
 }

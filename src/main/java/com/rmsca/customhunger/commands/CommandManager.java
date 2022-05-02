@@ -25,6 +25,8 @@ public class CommandManager implements CommandExecutor {
                         subcommands.get(i).execute(p, args);
                     }
                 }
+            } else {
+                return false;
             }
         }
         return true;
