@@ -7,6 +7,6 @@ website: https://github.com/RMSCA/Custom-Hunger
 commands:
   ch:
     description: The main command of Custom Hunger
-    usage: /<command>
+    usage: "Usage: /<command> <args>"
     aliases:
       - customhunger
