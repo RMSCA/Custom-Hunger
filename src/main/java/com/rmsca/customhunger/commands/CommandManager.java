@@ -23,12 +23,21 @@ public class CommandManager implements CommandExecutor {
                 for (int i = 0; i < subcommands.size(); i++) {
                     if (args[0].equals(subcommands.get(i).getName())) {
                         subcommands.get(i).execute(p, args);
+                        return true;
                     }
                 }
-            } else {
-                return false;
             }
+            return false;
+        } else {
+            if (args.length > 0) {
+                for (int i = 0; i < subcommands.size(); i++) {
+                    if (args[0].equals(subcommands.get(i).getName())) {
+                        subcommands.get(i).execute(args);
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-        return true;
     }
 }
