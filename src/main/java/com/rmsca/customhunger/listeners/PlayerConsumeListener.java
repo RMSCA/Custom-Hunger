@@ -16,13 +16,11 @@ public class PlayerConsumeListener implements Listener {
     public void onPlayerConsume(PlayerItemConsumeEvent e) {
         Player p = e.getPlayer();
         if (e.getItem().getType() == Material.BREAD) {
-            plugin.getLogger().info("Event Triggerd!");
             if (p.getFoodLevel() > (20 - BREAD)) {
                 p.setFoodLevel(20);
             } else {
                 p.setFoodLevel(p.getFoodLevel() + BREAD - 5);
             }
-            plugin.getLogger().info("Process complete!");
         }
     }
 }
