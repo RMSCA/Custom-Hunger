@@ -1,5 +1,4 @@
 package com.rmsca.customhunger.commands;
-
 import com.rmsca.customhunger.CustomHunger;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -7,9 +6,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-
-import java.util.Objects;
-
 public class SetFoodValueCommand implements CommandExecutor {
     // Needs optimization
     Plugin plugin = CustomHunger.getPlugin(CustomHunger.class);
@@ -50,7 +46,7 @@ public class SetFoodValueCommand implements CommandExecutor {
                     }
                 }
             } else {
-                p.sendMessage(Objects.requireNonNull(plugin.getConfig().getString("lang.no-permission"));
+                p.sendMessage("You do not have permission to do this!");
                 return true;
             }
         } else {
