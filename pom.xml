@@ -6,7 +6,7 @@
 
     <groupId>com.rmsca</groupId>
     <artifactId>CustomHunger</artifactId>
-    <version>0.1.5b</version>
+    <version>0.1.5b1</version>
     <packaging>jar</packaging>
 
     <name>CustomHunger</name>
