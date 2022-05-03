@@ -1,6 +1,6 @@
 package com.rmsca.customhunger.commands;
 
-import com.rmsca.customhunger.commands.subcommands.SetFoodValueSubcommand;
+import com.rmsca.customhunger.commands.subcommands.SetFoodLevelSubcommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,7 +12,7 @@ public class CommandManager implements CommandExecutor {
     ArrayList<Subcommand> subcommands = new ArrayList<>();
 
     public CommandManager() {
-        subcommands.add(new SetFoodValueSubcommand());
+        subcommands.add(new SetFoodLevelSubcommand());
     }
 
     @Override

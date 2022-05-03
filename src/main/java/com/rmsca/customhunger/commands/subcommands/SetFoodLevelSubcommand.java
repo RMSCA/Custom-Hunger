@@ -5,7 +5,7 @@ import com.rmsca.customhunger.commands.Subcommand;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class SetFoodValueSubcommand extends Subcommand {
+public class SetFoodLevelSubcommand extends Subcommand {
 
     @Override
     protected String getName() {
