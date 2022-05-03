@@ -2,13 +2,14 @@ package com.rmsca.customhunger.commands;
 
 import com.rmsca.customhunger.commands.subcommands.SetFoodLevelSubcommand;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CommandManager implements CommandExecutor {
+public class CommandManager implements TabExecutor {
     ArrayList<Subcommand> subcommands = new ArrayList<>();
 
     public CommandManager() {
@@ -38,5 +39,17 @@ public class CommandManager implements CommandExecutor {
             }
         }
         return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 1) {
+            List<String> tabCompleteSubcommand = new ArrayList<>();
+            for (Subcommand subcommand : subcommands) {
+                tabCompleteSubcommand.add(subcommand.getName());
+            }
+            return tabCompleteSubcommand;
+        }
+        return null;
     }
 }
