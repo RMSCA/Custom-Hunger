@@ -9,4 +9,5 @@ commands:
   ch:
     description: The main command of Custom Hunger
     usage: "Type \"/ch help\" for help"
-    aliases: [ customhunger ]
+    aliases: 
+      - customhunger
