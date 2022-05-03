@@ -1,1 +1,5 @@
 Bread: 5
+
+
+lang:
+  no-permission: "PermissionTest"
