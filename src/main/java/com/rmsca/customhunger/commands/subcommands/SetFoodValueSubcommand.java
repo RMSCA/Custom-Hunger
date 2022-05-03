@@ -35,6 +35,7 @@ public class SetFoodValueSubcommand extends Subcommand {
         try {
             Player targetPlayer = Bukkit.getPlayerExact(args[1]);
             targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
+            Bukkit.getConsoleSender().sendMessage(targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]));
         } catch (Exception e) {
             if (CommandHelper.isInteger(args[1])) {
                 Bukkit.getConsoleSender().sendMessage("You must specify a player name!");

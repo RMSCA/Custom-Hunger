@@ -20,24 +20,23 @@ public class CommandManager implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
             if (args.length > 0) {
-                for (int i = 0; i < subcommands.size(); i++) {
-                    if (args[0].equals(subcommands.get(i).getName())) {
-                        subcommands.get(i).execute(p, args);
+                for (Subcommand subcommand : subcommands) {
+                    if (args[0].equals(subcommand.getName())) {
+                        subcommand.execute(p, args);
                         return true;
                     }
                 }
             }
-            return false;
         } else {
             if (args.length > 0) {
-                for (int i = 0; i < subcommands.size(); i++) {
-                    if (args[0].equals(subcommands.get(i).getName())) {
-                        subcommands.get(i).execute(args);
+                for (Subcommand subcommand : subcommands) {
+                    if (args[0].equals(subcommand.getName())) {
+                        subcommand.execute(args);
                         return true;
                     }
                 }
             }
-            return false;
         }
+        return false;
     }
 }
