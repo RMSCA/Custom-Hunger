@@ -5,6 +5,8 @@ api-version: 1.18
 author: RMSCA
 website: https://github.com/RMSCA/Custom-Hunger
 commands:
-  setFoodValue:
-    description: Set your food value
-    usage: /<command> [food value]
+  ch:
+    description: The main command of Custom Hunger
+    usage: "Type \"/ch help\" for help"
+    aliases:
+      - customhunger
