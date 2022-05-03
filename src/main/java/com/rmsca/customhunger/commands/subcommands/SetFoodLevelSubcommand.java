@@ -24,7 +24,7 @@ public class SetFoodLevelSubcommand extends Subcommand {
                     targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
                     p.sendMessage(targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]));
                 } catch (Exception e) {
-                    p.sendMessage("Could not find this player! Check if there is a typo!");
+                    p.sendMessage("Target player doesn't exist or not online, please check the username you typed");
                 }
             }
         } else {
@@ -36,14 +36,14 @@ public class SetFoodLevelSubcommand extends Subcommand {
     protected void execute(String[] args) {
         if (args.length > 1) {
             if (CommandHelper.isInteger(args[1])) {
-                Bukkit.getConsoleSender().sendMessage("You must specify a player name!");
+                Bukkit.getConsoleSender().sendMessage("You must specify a player!");
             } else {
                 try {
                     Player targetPlayer = Bukkit.getPlayerExact(args[1]);
                     targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
                     Bukkit.getConsoleSender().sendMessage(targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]));
                 } catch (Exception e) {
-                    Bukkit.getConsoleSender().sendMessage("Could not find this player! Check if there is a typo!");
+                    Bukkit.getConsoleSender().sendMessage("Target player doesn't exist or not online, please check the username you typed!");
                 }
             }
         } else {
