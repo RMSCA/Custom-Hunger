@@ -1,7 +1,7 @@
 name: CustomHunger
 version: '${project.version}'
 main: com.rmsca.customhunger.CustomHunger
-description: lets you customize any food values
+description: customize any food values
 api-version: 1.18
 author: RMSCA
 website: https://github.com/RMSCA/Custom-Hunger
