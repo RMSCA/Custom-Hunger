@@ -3,10 +3,15 @@ package com.rmsca.customhunger.commands.subcommands;
 import com.rmsca.customhunger.commands.CommandHelper;
 import com.rmsca.customhunger.commands.Subcommand;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-public class SetFoodLevelSubcommand extends Subcommand {
+import java.util.ArrayList;
+import java.util.List;
 
+public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
     @Override
     protected String getName() {
         return "setfoodlevel";
@@ -57,5 +62,16 @@ public class SetFoodLevelSubcommand extends Subcommand {
         } else {
             Bukkit.getConsoleSender().sendMessage("Please provide an argument!");
         }
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+        List<String> tabCompletePlayerName = new ArrayList<>();
+        Player[] players = new Player[Bukkit.getOnlinePlayers().size()];
+        Bukkit.getOnlinePlayers().toArray(players);
+        for (Player player : players) {
+            tabCompletePlayerName.add(player.getName());
+        }
+        return tabCompletePlayerName;
     }
 }
