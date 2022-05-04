@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
     @Override
-    protected String getName() {
+    public String getName() {
         return "setfoodlevel";
     }
 
