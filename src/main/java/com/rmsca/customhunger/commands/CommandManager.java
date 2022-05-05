@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandManager implements TabExecutor {
-    public ArrayList<Subcommand> subcommands = new ArrayList<>();
+    public static ArrayList<Subcommand> subcommands = new ArrayList<>();
 
     public CommandManager() {
         subcommands.add(new SetFoodLevelSubcommand());

@@ -5,8 +5,10 @@ import org.bukkit.entity.Player;
 public abstract class Subcommand {
     public abstract String getName();
 
-    protected abstract void execute(Player p, String[] args);
+    public abstract String getUsage();
 
-    protected abstract void execute(String[] args);
+    public abstract void execute(Player p, String[] args);
+
+    public abstract void execute(String[] args);
 
 }

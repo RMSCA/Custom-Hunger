@@ -18,7 +18,12 @@ public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
     }
 
     @Override
-    protected void execute(Player p, String[] args) {
+    public String getUsage() {
+        return "Usage: /ch setfoodlevel <player> <food level>";
+    }
+
+    @Override
+    public void execute(Player p, String[] args) {
         if (args.length > 1) {
             if (CommandHelper.isInteger(args[1])) {
                 p.setFoodLevel(Integer.parseInt(args[1]));
@@ -33,19 +38,19 @@ public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
                         p.sendMessage("Target player doesn't exist, please check the username you typed!");
                     }
                 } else {
-                    p.sendMessage("Please provide an argument!");
+                    p.sendMessage(getUsage());
                 }
             }
         } else {
-            p.sendMessage("Please provide an argument!");
+            p.sendMessage(getUsage());
         }
     }
 
     @Override
-    protected void execute(String[] args) {
+    public void execute(String[] args) {
         if (args.length > 1) {
             if (CommandHelper.isInteger(args[1])) {
-                Bukkit.getConsoleSender().sendMessage("You must specify a player!");
+                Bukkit.getConsoleSender().sendMessage(getUsage());
             } else {
                 if (args.length > 2) {
                     try {
@@ -56,11 +61,11 @@ public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
                         Bukkit.getConsoleSender().sendMessage("Target player doesn't exist, please check the username you typed!");
                     }
                 } else {
-                    Bukkit.getConsoleSender().sendMessage("Please provide an argument!");
+                    Bukkit.getConsoleSender().sendMessage(getUsage());
                 }
             }
         } else {
-            Bukkit.getConsoleSender().sendMessage("Please provide an argument!");
+            Bukkit.getConsoleSender().sendMessage(getUsage());
         }
     }
 
