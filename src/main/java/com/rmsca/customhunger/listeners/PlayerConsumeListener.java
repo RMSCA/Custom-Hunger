@@ -21,7 +21,7 @@ public class PlayerConsumeListener implements Listener {
      * Returns the configured value for the given material
      * or (null) if no such configured value exists.
      */
-    private Integer getFoodValue(Material material) {
+    private Integer getConfiguredFoodValue(Material material) {
         Integer foodValue = null;
         
         // If the map of {edible_foods, configured_value} is not setup yet do it now:
@@ -55,7 +55,7 @@ public class PlayerConsumeListener implements Listener {
         
         // e.getItem().getType() seems to return a Material
         // (https://github.com/Bukkit/Bukkit/blob/f210234e59275330f83b994e199c76f6abd41ee7/src/main/java/org/bukkit/inventory/ItemStack.java#L143)
-        Integer configuredFoodLevel = getFoodLevel(e.getItem().getType());
+        Integer configuredFoodLevel = getConfiguredFoodValue(e.getItem().getType());
         
         // This is replicating the original logic you had for the BREAD case, generalized for
         // any kind of food. You may want to adjust it as needed.
