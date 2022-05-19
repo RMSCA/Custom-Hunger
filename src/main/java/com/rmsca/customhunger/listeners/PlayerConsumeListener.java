@@ -19,18 +19,23 @@ public class PlayerConsumeListener implements Listener {
     private Integer getConfiguredFoodValue(Material material) {
         Integer foodValue = null;
         if (foodValueMap == null) {
-            foodValueMap = new HashMap<>();
-            for (Material m : Material.values()) {
-                if (m.isEdible()) {
-                    Integer configValue = plugin.getConfig().getInt(m.toString().toLowerCase());
-                    foodValueMap.put(m, configValue);
-                }
-            }
+            foodValueMap = getFoodValueMap();
         }
         if (foodValueMap.containsKey(material)) {
             foodValue = foodValueMap.get(material);
         }
         return foodValue;
+    }
+
+    private HashMap<Material, Integer> getFoodValueMap() {
+        Map<Material, Integer> foodValueMap = new HashMap<>();
+        for (Material m : Material.values()) {
+            if (m.isEdible) {
+                Integer configValue = plugin.getConfig().getInt(m.toString().toLowerCase());
+                foodValueMap.put(m, configValue);
+            }
+        }
+        return foodValueMap;
     }
 
     @EventHandler
