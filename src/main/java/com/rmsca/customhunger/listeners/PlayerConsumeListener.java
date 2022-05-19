@@ -30,7 +30,7 @@ public class PlayerConsumeListener implements Listener {
     private HashMap<Material, Integer> getFoodValueMap() {
         Map<Material, Integer> foodValueMap = new HashMap<>();
         for (Material m : Material.values()) {
-            if (m.isEdible) {
+            if (m.isEdible()) {
                 Integer configValue = plugin.getConfig().getInt(m.toString().toLowerCase());
                 foodValueMap.put(m, configValue);
             }
