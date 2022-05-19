@@ -27,7 +27,7 @@ public class PlayerConsumeListener implements Listener {
         return foodValue;
     }
 
-    private HashMap<Material, Integer> getFoodValueMap() {
+    private Map<Material, Integer> getFoodValueMap() {
         Map<Material, Integer> foodValueMap = new HashMap<>();
         for (Material m : Material.values()) {
             if (m.isEdible()) {
