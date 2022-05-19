@@ -1,6 +1,6 @@
 package com.rmsca.customhunger.commands.subcommands;
 
-import com.rmsca.customhunger.commands.CommandHelper;
+import com.rmsca.customhunger.utils.ChHelper;
 import com.rmsca.customhunger.commands.Subcommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -25,7 +25,7 @@ public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
     @Override
     public void execute(Player p, String[] args) {
         if (args.length > 1) {
-            if (CommandHelper.isInteger(args[1])) {
+            if (ChHelper.isInteger(args[1])) {
                 p.setFoodLevel(Integer.parseInt(args[1]));
                 p.sendMessage("Your food level is now set to " + Integer.parseInt(args[1]));
             } else {
@@ -49,7 +49,7 @@ public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
     @Override
     public void execute(String[] args) {
         if (args.length > 1) {
-            if (CommandHelper.isInteger(args[1])) {
+            if (ChHelper.isInteger(args[1])) {
                 Bukkit.getConsoleSender().sendMessage(getUsage());
             } else {
                 if (args.length > 2) {
