@@ -47,7 +47,9 @@ public class PlayerConsumeListener implements Listener {
         Player p = e.getPlayer();
         Integer configuredFoodLevel = getConfiguredFoodValue(e.getItem().getType());
         Integer defaultFoodValue = null;
+        Inventory i = p.getInventory();
         Material m = e.getItem().getType();
+        World w = e.getWorld();
         if (isPotion(m)) {
             return;
         }
@@ -61,6 +63,11 @@ public class PlayerConsumeListener implements Listener {
             plugin.getLogger().severe("Encountered error when trying to get the default food value! The event is cancelled!");
             p.sendMessage("Encountered unknown error! Please report this to an admin! (Default food value)");
             e.setCancelled(true);
+            if (i.firstEmpty() == -1) {
+                w.dropItem(p.getLocation(), e.getItem());
+            } else {
+                i.addItem(e.getItem());
+            }
             return;
         }
         if (configuredFoodLevel != null) {
