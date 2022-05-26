@@ -27,45 +27,22 @@ public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
         if (args.length > 1) {
             if (ChHelper.isInteger(args[1])) {
                 p.setFoodLevel(Integer.parseInt(args[1]));
-                p.sendMessage("Your food level is now set to " + Integer.parseInt(args[1]));
+                ChHelper.sendMessage(p, "Your food level is now set to " + Integer.parseInt(args[1]));
             } else {
                 if (args.length > 2) {
                     try {
                         Player targetPlayer = Bukkit.getPlayerExact(args[1]);
                         targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
-                        p.sendMessage(targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]));
+                        ChHelper.sendMessage(p, targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]));
                     } catch (Exception e) {
-                        p.sendMessage("Target player doesn't exist, please check the username you typed!");
+                        ChHelper.sendMessage(p, "Target player doesn't exist, please check the username you typed!");
                     }
                 } else {
-                    p.sendMessage(getUsage());
+                    ChHelper.sendMessage(p, getUsage());
                 }
             }
         } else {
-            p.sendMessage(getUsage());
-        }
-    }
-
-    @Override
-    public void execute(String[] args) {
-        if (args.length > 1) {
-            if (ChHelper.isInteger(args[1])) {
-                Bukkit.getConsoleSender().sendMessage(getUsage());
-            } else {
-                if (args.length > 2) {
-                    try {
-                        Player targetPlayer = Bukkit.getPlayerExact(args[1]);
-                        targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
-                        Bukkit.getConsoleSender().sendMessage(targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]));
-                    } catch (Exception e) {
-                        Bukkit.getConsoleSender().sendMessage("Target player doesn't exist, please check the username you typed!");
-                    }
-                } else {
-                    Bukkit.getConsoleSender().sendMessage(getUsage());
-                }
-            }
-        } else {
-            Bukkit.getConsoleSender().sendMessage(getUsage());
+            ChHelper.sendMessage(p, getUsage());
         }
     }
 

@@ -2,7 +2,7 @@ package com.rmsca.customhunger.commands.subcommands;
 
 import com.rmsca.customhunger.commands.CommandManager;
 import com.rmsca.customhunger.commands.Subcommand;
-import org.bukkit.Bukkit;
+import com.rmsca.customhunger.utils.ChHelper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -29,38 +29,18 @@ public class HelpSubcommand extends Subcommand implements TabCompleter {
         if (args.length > 1) {
             for (Subcommand subcommand : subcommands) {
                 if (args[1].equals(subcommand.getName())) {
-                    p.sendMessage(subcommand.getUsage());
+                    ChHelper.sendMessage(p, subcommand.getUsage());
                     return;
                 }
             }
-            p.sendMessage("Command not found!");
-            p.sendMessage(getUsage());
+            ChHelper.sendMessage(p, "Command not found!");
+            ChHelper.sendMessage(p, getUsage());
         } else {
-            p.sendMessage("Available commands:");
+            ChHelper.sendMessage(p, "Available commands:");
             for (Subcommand subcommand : subcommands) {
-                p.sendMessage(subcommand.getName());
+                ChHelper.sendMessage(p, subcommand.getName());
             }
-            p.sendMessage(getUsage());
-        }
-    }
-
-    @Override
-    public void execute(String[] args) {
-        if (args.length > 1) {
-            for (Subcommand subcommand : subcommands) {
-                if (args[1].equals(subcommand.getName())) {
-                    Bukkit.getConsoleSender().sendMessage(subcommand.getUsage());
-                    return;
-                }
-            }
-            Bukkit.getConsoleSender().sendMessage("Command not found!");
-            Bukkit.getConsoleSender().sendMessage(getUsage());
-        } else {
-            Bukkit.getConsoleSender().sendMessage("Available commands:");
-            for (Subcommand subcommand : subcommands) {
-                Bukkit.getConsoleSender().sendMessage(subcommand.getName());
-            }
-            Bukkit.getConsoleSender().sendMessage(getUsage());
+            ChHelper.sendMessage(p, getUsage());
         }
     }
 
