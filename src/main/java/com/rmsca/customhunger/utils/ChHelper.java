@@ -1,5 +1,8 @@
 package com.rmsca.customhunger.utils;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
 public class ChHelper {
     public static boolean isInteger(String str) {
         for (int i = 0; i < str.length(); i++) {
@@ -11,9 +14,9 @@ public class ChHelper {
         return true;
     }
 
-    public void sendMessage(Player p, String message) {
+    public static void sendMessage(Player p, String message) {
         if (p == null) {
-            Bukkit.getConsole().sendMessage(message);
+            Bukkit.getConsoleSender().sendMessage(message);
         } else {
             p.sendMessage(message);
         }
@@ -61,9 +64,11 @@ public class ChHelper {
         SWEET_BERRIES(2),
         TROPICAL_FISH(1);
         private final int defaultFoodValue;
+
         DefaultFoodValues(final int defaultFoodValue) {
             this.defaultFoodValue = defaultFoodValue;
         }
+
         public int getDefaultFoodValue() {
             return defaultFoodValue;
         }

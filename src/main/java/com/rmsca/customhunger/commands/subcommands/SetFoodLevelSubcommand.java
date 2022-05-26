@@ -33,7 +33,7 @@ public class SetFoodLevelSubcommand extends Subcommand implements TabCompleter {
                     try {
                         Player targetPlayer = Bukkit.getPlayerExact(args[1]);
                         targetPlayer.setFoodLevel(Integer.parseInt(args[2]));
-                        ChHelper.sendMessage(p, targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]))
+                        ChHelper.sendMessage(p, targetPlayer.getDisplayName() + "'s food level is now set to " + Integer.parseInt(args[2]));
                     } catch (Exception e) {
                         ChHelper.sendMessage(p, "Target player doesn't exist, please check the username you typed!");
                     }
