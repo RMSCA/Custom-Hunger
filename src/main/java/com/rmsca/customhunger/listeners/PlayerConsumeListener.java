@@ -39,7 +39,7 @@ public class PlayerConsumeListener implements Listener {
     }
 
     private boolean isPotion(Material m) {
-        return m.equals(Material.POTION) ? true : false;
+        return m.equals(Material.POTION);
     }
 
     @EventHandler
