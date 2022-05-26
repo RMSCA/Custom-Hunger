@@ -3,7 +3,6 @@ package com.rmsca.customhunger.listeners;
 import com.rmsca.customhunger.CustomHunger;
 import com.rmsca.customhunger.utils.ChHelper;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
