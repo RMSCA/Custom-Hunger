@@ -20,15 +20,11 @@ public class CommandManager implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player p = (Player) sender;
+        Player p = sender instanceof Player ? (Player) sender : null;
         if (args.length > 0) {
             for (Subcommand subcommand : subcommands) {
                 if (args[0].equals(subcommand.getName())) {
-                    if (sender instanceof Player) {
-                        subcommand.execute(p, args);
-                    } else {
-                        subcommand.execute(args);
-                    }
+                    subcommand.execute(p, args);
                     return true;
                 }
             }

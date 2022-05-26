@@ -9,6 +9,4 @@ public abstract class Subcommand {
 
     public abstract void execute(Player p, String[] args);
 
-    public abstract void execute(String[] args);
-
 }

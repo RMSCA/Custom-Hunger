@@ -11,6 +11,14 @@ public class ChHelper {
         return true;
     }
 
+    public void sendMessage(Player p, String message) {
+        if (p == null) {
+            Bukkit.getConsole().sendMessage(message);
+        } else {
+            p.sendMessage(message);
+        }
+    }
+
     public enum DefaultFoodValues {
         APPLE(4),
         BAKED_POTATO(5),
