@@ -1,5 +1,7 @@
 # Custom-Hunger
 
+![](https://img.shields.io/badge/Version-1.18.x-brightgreen?style=for-the-badge)
+
 ## Introduction
 Custom-Hunger is a Minecraft plugin that allows you to customize all the food values through a config file
 
