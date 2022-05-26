@@ -38,12 +38,19 @@ public class PlayerConsumeListener implements Listener {
         return foodValueMap;
     }
 
+    private boolean isPotion(Material m) {
+        return m.equals(Material.POTION) ? true : false;
+    }
+
     @EventHandler
     public void onPlayerConsume(PlayerItemConsumeEvent e) {
         Player p = e.getPlayer();
         Integer configuredFoodLevel = getConfiguredFoodValue(e.getItem().getType());
         Integer defaultFoodValue = null;
         Material m = e.getItem().getType();
+        if (isPotion(m)) {
+            return;
+        }
         for (ChHelper.DefaultFoodValues d : ChHelper.DefaultFoodValues.values()) {
             if (m.toString().equalsIgnoreCase(d.toString())) {
                 defaultFoodValue = d.getDefaultFoodValue();
