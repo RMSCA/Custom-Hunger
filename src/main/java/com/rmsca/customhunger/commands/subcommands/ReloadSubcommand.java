@@ -20,15 +20,20 @@ public class ReloadSubcommand extends Subcommand {
 
     @Override
     public void execute(Player p, String[] args) {
+        plugin.getLogger().debug("Reloading config file!");
         plugin.reloadConfig();
-        if(isReloaded()) {
-            ChHelper.sendMessage(p, "Config reloaded!");
+        /* if(isReloaded()) {
+            plugin.getLogger().info("Config is reloaded!");
         } else {
             ChHelper.sendMessage(p, "Config has not reloaded!");
-        }
+        } */
+        Integer configValue = plugin.getConfig().getInt(Material.APPLE.toString().toLowerCase());
+        plugin.getLogger().debug("Getting the value of apple: " + configValue);
     }
 
-    private boolean isReloaded() {
-        return false;
-    }
+    /* private boolean isReloaded() {
+        Integer configValue = plugin.getConfig().getInt(Material.APPLE.toString().toLowerCase());
+        plugin.getLogger().debug("Getting the value of apple: " + configValue);
+        return configValue != 4;
+    } */
 }
