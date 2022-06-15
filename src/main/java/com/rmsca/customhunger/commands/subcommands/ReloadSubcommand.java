@@ -2,7 +2,7 @@ package com.rmsca.customhunger.commands.subcommands;
 
 import com.rmsca.customhunger.CustomHunger;
 import com.rmsca.customhunger.commands.Subcommand;
-import com.rmsca.customhunger.utils.ChHelper;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -20,7 +20,7 @@ public class ReloadSubcommand extends Subcommand {
 
     @Override
     public void execute(Player p, String[] args) {
-        plugin.getLogger().debug("Reloading config file!");
+        plugin.getLogger().info("Reloading config file!");
         plugin.reloadConfig();
         /* if(isReloaded()) {
             plugin.getLogger().info("Config is reloaded!");
@@ -28,7 +28,7 @@ public class ReloadSubcommand extends Subcommand {
             ChHelper.sendMessage(p, "Config has not reloaded!");
         } */
         Integer configValue = plugin.getConfig().getInt(Material.APPLE.toString().toLowerCase());
-        plugin.getLogger().debug("Getting the value of apple: " + configValue);
+        plugin.getLogger().info("Getting the value of apple: " + configValue);
     }
 
     /* private boolean isReloaded() {
