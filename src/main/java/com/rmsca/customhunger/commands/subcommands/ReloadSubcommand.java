@@ -5,9 +5,11 @@ import com.rmsca.customhunger.commands.Subcommand;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class ReloadSubcommand extends Subcommand {
-    Plugin plugin = CustomHunger.getPlugin(CustomHunger.class);
+    JavaPlugin plugin = CustomHunger.getPlugin(CustomHunger.class);
+
     @Override
     public String getName() {
         return "reload";
